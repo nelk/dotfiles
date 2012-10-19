@@ -1,0 +1,10 @@
+VIMPATH='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vim=$VIMPATH
+alias adb=/opt/android-sdk-macosx/platform-tools/adb
+
+alias gai='git add -i'
+alias gri='git rebase -i'
+gdv() { git diff -w "$@" | "$VIMPATH" - }
+
+export EDITOR=$VIMPATH
+
