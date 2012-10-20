@@ -1,5 +1,8 @@
 
+colorscheme molokai
 set tags=tags;
 
-colorscheme molokai
+let g:Powerline_symbols = 'fancy'
+
+nnoremap <leader><space> :noh<cr>
 
