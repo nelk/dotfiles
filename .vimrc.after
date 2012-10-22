@@ -1,6 +1,23 @@
 
+set nocompatible
+set modelines=0
+
 colorscheme molokai
 set tags=tags;
+set wrap
+set visualbell
+set cursorline
+set ruler
+set undofile
+set relativenumber
+set scrolloff=3 " Leave 3 lines above/below cursor visible at all times
+
+nnoremap / /\v
+vnoremap / /\v
+
+set ignorecase
+set smartcase
+set gdefault
 
 let g:Powerline_symbols = 'fancy'
 
