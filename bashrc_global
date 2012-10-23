@@ -4,6 +4,7 @@ alias adb=/opt/android-sdk-macosx/platform-tools/adb
 
 alias gai='git add -i'
 alias gri='git rebase -i'
+alias gk='gitk --all &'
 gdv() { git diff -w "$@" | "$VIMPATH" - }
 
 export EDITOR=$VIMPATH
