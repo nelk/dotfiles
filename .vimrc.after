@@ -3,6 +3,7 @@ set nocompatible
 set modelines=0
 
 colorscheme molokai
+
 set tags=tags;
 set wrap
 set visualbell
@@ -12,14 +13,15 @@ set undofile
 set relativenumber
 set scrolloff=3 " Leave 3 lines above/below cursor visible at all times
 
+" Can leave modified buffers
+set hidden
+
 nnoremap / /\v
 vnoremap / /\v
 
 set ignorecase
 set smartcase
 set gdefault
-
-let g:Powerline_symbols = 'fancy'
 
 nnoremap <leader><space> :noh<cr>
 
