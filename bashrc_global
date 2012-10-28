@@ -1,12 +1,24 @@
 
-VIMPATH='vim'
+export DOTFILES=~/dotfiles
+
+# Run bash profiles if they exist
+if [ -e ~/.bash_profile ]; then
+  source ~/.bash_profile
+fi
+if [ -e ~/.bashrc ]; then
+  source ~/.bashrc
+fi
+
+if [ ! $VIMPATH ]; then
+  export VIMPATH='vim'
+fi
 alias vim=$VIMPATH
 alias adb=/opt/android-sdk-macosx/platform-tools/adb
 
 alias gai='git add -i'
 alias gri='git rebase -i'
 alias gk='gitk --all &'
-gvo() { vim `git diff --name-only -w "$@"` }
+gvo() { $VIMPATH `git diff --name-only -w "$@"` }
 gdv() { git diff -w "$@" | "$VIMPATH" - }
 
 export EDITOR=$VIMPATH
