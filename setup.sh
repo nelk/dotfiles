@@ -1,5 +1,8 @@
 #!/bin/bash
 
+command -v zsh >/dev/null 2>&1 || { echo "Please install zsh and then run this again." >&2; exit 1; }
+command -v rake >/dev/null 2>&1 || { echo "Please install rake and then run this again." >&2; exit 1; }
+
 DOTFILES=~/dotfiles
 
 echo 'Setting up oh-my-zsh'
@@ -16,10 +19,10 @@ ln -s $DOTFILES/.janus ~/.janus
 
 # Sym links for zsh to run
 ln -s $DOTFILES/bashrc_global $DOTFILES/oh-my-zsh/custom/bashrc_global.zsh
-if [ -e '~/.bash_profile' ]; then
+if [ -e ~/.bash_profile ]; then
   ln -s ~/.bash_profile $DOTFILES/oh-my-zsh/custom/bash_profile.zsh
 fi
-if [ -e '~/.bashrc' ]; then
+if [ -e ~/.bashrc ]; then
   ln -s ~/.bashrc $DOTFILES/oh-my-zsh/custom/bashrc.zsh
 fi
 

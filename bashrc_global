@@ -1,4 +1,5 @@
-VIMPATH='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+VIMPATH='vim'
 alias vim=$VIMPATH
 alias adb=/opt/android-sdk-macosx/platform-tools/adb
 
