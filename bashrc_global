@@ -13,13 +13,16 @@ if [ ! $VIMPATH ]; then
   export VIMPATH='vim'
 fi
 alias vim=$VIMPATH
-alias adb=/opt/android-sdk-macosx/platform-tools/adb
+alias v='vim .'
 
 alias gai='git add -i'
 alias gri='git rebase -i'
 alias gk='gitk --all &'
+alias gd='git diff'
 gvo() { $VIMPATH `git diff --name-only -w "$@"` }
-gdv() { git diff -w "$@" | "$VIMPATH" - }
+
+export GIT_EXTERNAL_DIFF=$DOTFILES/vim_diff.sh
+export GIT_PAGER=
 
 export EDITOR=$VIMPATH
 
