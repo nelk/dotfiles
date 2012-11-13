@@ -16,6 +16,7 @@ alias vim=$VIMPATH
 alias v='vim .'
 
 alias gai='git add -i'
+alias gca='git commit --amend'
 alias gri='git rebase -i'
 alias gk='gitk --all &'
 alias gd='git diff'
