@@ -13,3 +13,6 @@
 [submodule ".janus/vim-repeat"]
 	path = .janus/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule ".janus/vim-debug"]
+	path = .janus/vim-debug
+	url = https://github.com/jabapyth/vim-debug.git

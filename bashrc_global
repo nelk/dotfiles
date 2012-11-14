@@ -15,11 +15,15 @@ fi
 alias vim=$VIMPATH
 alias v='vim .'
 
+# Git aliases - some others are already provided by oh-my-zsh at:
+# ./oh-my-zsh/plugins/git/git.plugin.zsh
+alias gf='git fetch'
 alias gai='git add -i'
-alias gcam='git commit --amend'
+alias gcam='git commit -a -v --amend'
 alias gri='git rebase -i'
 alias gk='gitk --all &'
 alias gd='git diff'
+alias glgo='git log --graph --max-count=20 --oneline'
 gvo() { $VIMPATH `git diff --name-only -w "$@"` }
 
 export GIT_EXTERNAL_DIFF=$DOTFILES/vim_diff.sh
