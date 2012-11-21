@@ -24,5 +24,9 @@ set ignorecase
 set smartcase
 set gdefault
 
+" Prevent hard-wrap
+set textwidth=0
+set wrapmargin=0
+
 nnoremap <leader><space> :noh<cr>
 
