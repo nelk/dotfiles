@@ -28,7 +28,7 @@ nnoremap <c-h> 3k3<c-y>
 nnoremap <c-l> 3j3<c-e>
 
 " Quick substitution
-nnoremap <leader>s :%s/\v<left><left>
+nnoremap <leader>s :%s/\v
 nnoremap <leader>f :Ack ""<left>
 
 set ignorecase
