@@ -15,6 +15,7 @@ echo 'Building sym links'
 # Sym links required to be put into home
 ln -s $DOTFILES/.zshrc ~/.zshrc
 ln -s $DOTFILES/.vimrc.after ~/.vimrc.after
+ln -s $DOTFILES/.vimrc.before ~/.vimrc.before
 ln -s $DOTFILES/.janus ~/.janus
 
 # Sym link for zsh to run
