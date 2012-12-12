@@ -13,9 +13,9 @@
 [submodule ".janus/vim-repeat"]
 	path = .janus/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule ".janus/vim-debug"]
-	path = .janus/vim-debug
-	url = https://github.com/jabapyth/vim-debug.git
 [submodule ".janus/vim-indent-guides"]
 	path = .janus/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule ".janus/vimux"]
+	path = .janus/vimux
+	url = https://github.com/benmills/vimux.git

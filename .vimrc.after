@@ -1,8 +1,8 @@
 
 set nocompatible
+set t_Co=256
 set modelines=0
 
-set t_Co=256
 colorscheme molokai
 
 set tags=tags;
@@ -41,5 +41,12 @@ set wrapmargin=0
 
 nnoremap <leader><space> :noh<cr>
 
+" Vimux aliases
+nnoremap <leader>vp :VimuxPromptCommand<CR>
+nnoremap <leader>vl :VimuxRunLastCommand<CR>
+
+" Indent guides highlights
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#111111 ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=234
 
 
