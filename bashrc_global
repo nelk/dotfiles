@@ -18,6 +18,7 @@ alias tmux='tmux -2'
 
 # Git aliases - some others are already provided by oh-my-zsh at:
 # ./oh-my-zsh/plugins/git/git.plugin.zsh
+alias gsts='git status -s'
 alias gf='git fetch'
 alias gai='git add -i'
 alias gcam='git commit -a -v --amend'
