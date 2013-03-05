@@ -1,7 +1,7 @@
 
 set nocompatible
 set t_Co=256
-set modelines=0
+"set modelines=0
 
 colorscheme molokai
 
@@ -36,7 +36,7 @@ set smartcase
 set gdefault
 
 " Prevent hard-wrap
-set textwidth=0
+au BufNewFile,BufRead * set textwidth=0
 set wrapmargin=0
 
 nnoremap <leader><space> :noh<cr>
