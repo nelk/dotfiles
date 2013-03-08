@@ -43,17 +43,7 @@ au BufNewFile,BufRead * set textwidth=0
 set wrapmargin=0
 
 " Fix file type
-function FixFileType()
-  let strings = split(expand("%"), "\\.")
-  if strings[0] == "vimrc"
-    let &ft = "vim"
-  elseif strings[-1] == "h"
-    let &ft = "c"
-  else
-    let &ft = strings[-1]
-  endif
-endfunction
-au BufNewFile,BufRead * call FixFileType()
+au BufNewFile,BufRead *.h,*.c set ft=c
 
 nnoremap <leader><space> :noh<cr>
 
