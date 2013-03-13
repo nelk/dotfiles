@@ -22,3 +22,6 @@
 [submodule ".janus/clang_complete"]
 	path = .janus/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule ".janus/vim-latex"]
+	path = .janus/vim-latex
+	url = https://github.com/jcf/vim-latex.git
