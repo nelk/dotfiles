@@ -44,6 +44,7 @@ set wrapmargin=0
 
 " Fix file type
 au BufNewFile,BufRead *.h,*.c set ft=c
+au BufNewFile,BufRead *.cpp set ft=cpp
 
 nnoremap <leader><space> :noh<cr>
 
