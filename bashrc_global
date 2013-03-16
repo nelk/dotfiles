@@ -26,8 +26,9 @@ alias gcam='git commit -a -v --amend'
 alias gri='git rebase -i'
 alias gk='gitk --all &'
 alias gd='git diff'
+alias glg='git log | less -F'
 alias glgo='git log --graph --max-count=20 --oneline'
-gvo() { $VIMPATH `git diff --name-only -w "$@"` }
+gvo() { $VIMPATH `git diff --no-pager --name-only -w "$@"` }
 
 export GIT_EXTERNAL_DIFF=$DOTFILES/vim_diff.sh
 export GIT_PAGER=
