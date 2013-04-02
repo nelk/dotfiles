@@ -17,6 +17,7 @@ ln -s $DOTFILES/.zshrc ~/.zshrc
 ln -s $DOTFILES/.vimrc.after ~/.vimrc.after
 ln -s $DOTFILES/.vimrc.before ~/.vimrc.before
 ln -s $DOTFILES/.janus ~/.janus
+ln -s $DOTFILES/.xinitrc ~/.xinitrc
 
 # Sym link for zsh to run
 ln -s $DOTFILES/bashrc_global $DOTFILES/oh-my-zsh/custom/bashrc_global.zsh
