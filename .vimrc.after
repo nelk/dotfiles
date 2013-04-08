@@ -1,4 +1,4 @@
-
+﻿
 set nocompatible
 set t_Co=256
 "set modelines=0
@@ -8,10 +8,10 @@ colorscheme molokai
 set tags=tags;
 set wrap
 set visualbell
-set cursorline
+"set cursorline " Slow
 set ruler
 set undofile
-set relativenumber
+"set relativenumber " Slow
 set scrolloff=3 " Leave 3 lines above/below cursor visible at all times
 
 set shiftwidth=4
@@ -19,6 +19,10 @@ set tabstop=4
 
 " Can leave modified buffers
 set hidden
+
+" Whitespace characters
+set list
+set listchars=tab:»·,trail:·
 
 " Very magic mode
 nnoremap / /\v
@@ -33,6 +37,7 @@ nnoremap <c-l> 3j3<c-e>
 " Quick substitution
 nnoremap <leader>s :%s/\v
 nnoremap <leader>f :Ack ""<left>
+
 
 set ignorecase
 set smartcase
