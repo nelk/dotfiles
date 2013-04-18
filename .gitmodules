@@ -25,3 +25,9 @@
 [submodule ".janus/vim-latex"]
 	path = .janus/vim-latex
 	url = https://github.com/jcf/vim-latex.git
+[submodule ".janus/textobj-word-column"]
+	path = .janus/textobj-word-column
+	url = https://github.com/coderifous/textobj-word-column.vim
+[submodule ".janus/CamelCaseMotion"]
+	path = .janus/CamelCaseMotion
+	url = git@github.com:bkad/CamelCaseMotion.git
