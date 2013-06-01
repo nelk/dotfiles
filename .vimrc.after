@@ -5,9 +5,10 @@ set t_Co=256
 
 colorscheme molokai
 
+set guifont=Monospace\ 14
 set tags=tags;
 set wrap
-set visualbell
+set novisualbell
 "set cursorline " Slow
 set ruler
 set undofile
@@ -28,11 +29,11 @@ set listchars=tab:»·,trail:·
 nnoremap / /\v
 vnoremap / /\v
 
-" Fast navigation
-nnoremap <c-j> 5j
-nnoremap <c-k> 5k
-nnoremap <c-h> 3k3<c-y>
-nnoremap <c-l> 3j3<c-e>
+" Quick window movement
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " Quick substitution
 nnoremap <leader>s :%s/\v
