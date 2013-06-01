@@ -17,6 +17,7 @@ set novisualbell
 set ruler
 set undofile
 "set relativenumber " Slow
+set number
 set scrolloff=3 " Leave 3 lines above/below cursor visible at all times
 
 set shiftwidth=4
