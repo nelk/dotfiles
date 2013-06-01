@@ -1,4 +1,8 @@
 ﻿
+execute pathogen#infect()
+
+syntax on
+filetype plugin indent on
 set nocompatible
 set t_Co=256
 "set modelines=0
@@ -49,8 +53,8 @@ au BufNewFile,BufRead * set textwidth=0
 set wrapmargin=0
 
 " Fix file type
-au BufNewFile,BufRead *.h,*.c set ft=c
-au BufNewFile,BufRead *.cpp set ft=cpp
+" au BufNewFile,BufRead *.h,*.c set ft=c
+" au BufNewFile,BufRead *.cpp set ft=cpp
 
 nnoremap <leader><space> :noh<cr>
 
@@ -60,6 +64,10 @@ nnoremap <leader><leader>c !ctags -Rf - --format=2 --excmd=pattern --extra= --fi
 " Vimux aliases
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
+
+" Show indent guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup=1
 
 " Indent guides highlights
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#111111 ctermbg=235
