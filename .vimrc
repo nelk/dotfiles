@@ -57,6 +57,11 @@ set wrapmargin=0
 " au BufNewFile,BufRead *.h,*.c set ft=c
 " au BufNewFile,BufRead *.cpp set ft=cpp
 
+" Window sizing
+set winheight=25
+set winminheight=0
+
+
 nnoremap <leader><space> :noh<cr>
 
 " ctags aliases
@@ -74,4 +79,26 @@ let g:indent_guides_enable_on_vim_startup=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#111111 ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=234
 
+
+" Bookmarking Awesome
+let g:BookmarksFile = "~/bookmarks"
+function! CreateBookmark()
+	let f = @%
+	let l = line('.')
+	execute "e + " . g:BookmarksFile
+	execute "norm o" . f . ":" . l . " "
+	startinsert!
+endfunction
+
+function! GoToBookmarks()
+execute "e " . g:BookmarksFile
+endfunction
+
+nmap <leader>m :call GoToBookmarks()<CR>
+nmap <leader>M :call CreateBookmark()<CR>
+" End Bookmarking Awesome
+
+" Folding shortcut
+nnoremap <leader>zf :set foldmethod=indent<CR>zM
+nnoremap <leader>zF :set foldmethod=manual<CR>zR
 
