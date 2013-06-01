@@ -4,30 +4,30 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule ".janus/vim-powerline"]
-	path = .janus/vim-powerline
+[submodule "bundle/vim-powerline/vim-powerline"]
+	path = bundle/vim-powerline/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule ".janus/Smooth-Scroll"]
 	path = .janus/Smooth-Scroll
 	url = https://github.com/vim-scripts/Smooth-Scroll.git
-[submodule ".janus/vim-repeat"]
-	path = .janus/vim-repeat
+[submodule "bundle/vim-repeat/vim-repeat"]
+	path = bundle/vim-repeat/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule ".janus/vim-indent-guides"]
-	path = .janus/vim-indent-guides
+[submodule "bundle/vim-indent-guides/vim-indent-guides"]
+	path = bundle/vim-indent-guides/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule ".janus/vimux"]
-	path = .janus/vimux
+[submodule "bundle/vimux/vimux"]
+	path = bundle/vimux/vimux
 	url = https://github.com/benmills/vimux.git
-[submodule ".janus/clang_complete"]
-	path = .janus/clang_complete
+[submodule "bundle/clang_complete/clang_complete"]
+	path = bundle/clang_complete/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
-[submodule ".janus/vim-latex"]
-	path = .janus/vim-latex
+[submodule "bundle/vim-latex/vim-latex"]
+	path = bundle/vim-latex/vim-latex
 	url = https://github.com/jcf/vim-latex.git
-[submodule ".janus/textobj-word-column"]
-	path = .janus/textobj-word-column
+[submodule "bundle/textobj-word-column/textobj-word-column"]
+	path = bundle/textobj-word-column/textobj-word-column
 	url = https://github.com/coderifous/textobj-word-column.vim
-[submodule ".janus/CamelCaseMotion"]
-	path = .janus/CamelCaseMotion
+[submodule "bundle/CamelCaseMotion/CamelCaseMotion"]
+	path = bundle/CamelCaseMotion/CamelCaseMotion
 	url = git@github.com:bkad/CamelCaseMotion.git
