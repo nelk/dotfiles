@@ -7,9 +7,6 @@
 [submodule "bundle/vim-powerline/vim-powerline"]
 	path = bundle/vim-powerline/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule ".janus/Smooth-Scroll"]
-	path = .janus/Smooth-Scroll
-	url = https://github.com/vim-scripts/Smooth-Scroll.git
 [submodule "bundle/vim-repeat/vim-repeat"]
 	path = bundle/vim-repeat/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
