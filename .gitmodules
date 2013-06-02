@@ -22,9 +22,6 @@
 [submodule "bundle/textobj-word-column/textobj-word-column"]
 	path = bundle/textobj-word-column/textobj-word-column
 	url = https://github.com/coderifous/textobj-word-column.vim
-[submodule "bundle/CamelCaseMotion/CamelCaseMotion"]
-	path = bundle/CamelCaseMotion/CamelCaseMotion
-	url = git@github.com:bkad/CamelCaseMotion.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
