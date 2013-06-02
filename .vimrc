@@ -67,6 +67,10 @@ nnoremap <leader><space> :noh<cr>
 " ctags aliases
 nnoremap <leader><leader>c !ctags -Rf - --format=2 --excmd=pattern --extra= --fields=nksaSmt
 
+" NERDTree shortcuts
+nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <leader>N :NERDTreeClose<CR>
+
 " Vimux aliases
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
