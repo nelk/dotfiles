@@ -1,13 +1,17 @@
 ﻿
-execute pathogen#infect()
-
-syntax on
-filetype plugin indent on
 set nocompatible
+
+execute pathogen#incubate()
+
+filetype off " Required to ensure reloading of ftdetect with pathogen
+filetype plugin indent on
+syntax on
+
 set t_Co=256
 "set modelines=0
 
 colorscheme molokai
+hi Normal ctermbg=none
 
 set guifont=Monospace\ 14
 set tags=tags;
@@ -26,9 +30,21 @@ set tabstop=4
 " Can leave modified buffers
 set hidden
 
+" Searching
+set ignorecase
+set smartcase
+set gdefault
+set hlsearch
+
 " Whitespace characters
 set list
+set wrap
+set expandtab
 set listchars=tab:»·,trail:·
+
+" Prevent hard-wrap
+au BufNewFile,BufRead * set textwidth=0
+set wrapmargin=0
 
 " Very magic mode
 nnoremap / /\v
@@ -44,15 +60,6 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>s :%s/\v
 nnoremap <leader>f :Ack ""<left>
 
-
-set ignorecase
-set smartcase
-set gdefault
-
-" Prevent hard-wrap
-au BufNewFile,BufRead * set textwidth=0
-set wrapmargin=0
-
 " Fix file type
 " au BufNewFile,BufRead *.h,*.c set ft=c
 " au BufNewFile,BufRead *.cpp set ft=cpp
@@ -61,6 +68,7 @@ set wrapmargin=0
 set winheight=25
 set winminheight=0
 
+" Shortcut Section ---------------
 
 nnoremap <leader><space> :noh<cr>
 
@@ -105,4 +113,13 @@ nmap <leader>M :call CreateBookmark()<CR>
 " Folding shortcut
 nnoremap <leader>zf :set foldmethod=indent<CR>zM
 nnoremap <leader>zF :set foldmethod=manual<CR>zR
+
+" Ctrl+P excludes
+let g:ctrlp_custom_ignore = '\v\.(o|hi)$'
+
+" haskellmode-vim settings
+au Bufenter *.hs compiler ghc
+let g:haddock_browser="gnome-open"
+let g:haddock_docdir=""
+
 
