@@ -36,4 +36,6 @@ plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH=$PATH:~/.cabal/bin
+
 # Customize to your needs...

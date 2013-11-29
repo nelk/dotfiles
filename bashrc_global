@@ -26,7 +26,7 @@ alias gcam='git commit -a -v --amend'
 alias gri='git rebase -i'
 alias gk='gitk --all &'
 alias gd='git diff'
-alias glg='git log | less -F'
+alias glg='git log --decorate --oneline -n 20'
 alias glgo='git log --graph --max-count=20 --oneline'
 gvo() { $VIMPATH `git diff --name-only -w "$@"` }
 

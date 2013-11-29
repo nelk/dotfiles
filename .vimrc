@@ -24,8 +24,8 @@ set undofile
 set number
 set scrolloff=3 " Leave 3 lines above/below cursor visible at all times
 
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Can leave modified buffers
 set hidden
@@ -122,4 +122,10 @@ au Bufenter *.hs compiler ghc
 let g:haddock_browser="gnome-open"
 let g:haddock_docdir=""
 
+" vim-multiple-cursors settings
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<C-c>'
 
