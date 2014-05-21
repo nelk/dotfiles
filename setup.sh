@@ -18,6 +18,10 @@ ln -s $DOTFILES/autoload ~/.vim/autoload
 ln -s $DOTFILES/colors ~/.vim/colors
 ln -s $DOTFILES/syntax ~/.vim/syntax
 
+# Powerline
+ln -s $DOTFILES/powerline/powerline/powerline_config ~/.config/powerline
+ln -s $DOTFILES/powerline/powerline/bindings/vim $DOTFILES/bundle/vim-powerline
+
 # Sym link for zsh to run
 ln -s $DOTFILES/bashrc_global $DOTFILES/oh-my-zsh/custom/bashrc_global.zsh
 

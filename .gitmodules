@@ -1,18 +1,12 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "bundle/vim-powerline/vim-powerline"]
-	path = bundle/vim-powerline/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/vim-repeat/vim-repeat"]
 	path = bundle/vim-repeat/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "bundle/vim-indent-guides/vim-indent-guides"]
 	path = bundle/vim-indent-guides/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "bundle/vimux/vimux"]
-	path = bundle/vimux/vimux
-	url = https://github.com/benmills/vimux.git
 [submodule "bundle/vim-latex/vim-latex"]
 	path = bundle/vim-latex/vim-latex
 	url = https://github.com/jcf/vim-latex.git
@@ -40,9 +34,18 @@
 [submodule "bundle/vim-easymotion"]
 	path = bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule "bundle/haskellmode-vim"]
-	path = bundle/haskellmode-vim
-	url = https://github.com/lukerandall/haskellmode-vim.git
 [submodule "bundle/vim-multiple-cursors"]
 	path = bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "bundle/vimux"]
+	path = bundle/vimux
+	url = git@github.com:benmills/vimux.git
+[submodule "bundle/vim-scala"]
+	path = bundle/vim-scala
+	url = git@github.com:derekwyatt/vim-scala.git
+[submodule "bundle/vim-powerline"]
+	path = bundle/vim-powerline
+	url = git@github.com:Lokaltog/vim-powerline.git

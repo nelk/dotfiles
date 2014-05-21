@@ -118,9 +118,10 @@ nnoremap <leader>zF :set foldmethod=manual<CR>zR
 let g:ctrlp_custom_ignore = '\v\.(o|hi)$'
 
 " haskellmode-vim settings
-au Bufenter *.hs compiler ghc
-let g:haddock_browser="gnome-open"
-let g:haddock_docdir=""
+"au Bufenter *.hs compiler ghc
+"let g:haddock_browser="gnome-open"
+"let g:haddock_docdir=""
+"set makeprg=cabal\ build
 
 " vim-multiple-cursors settings
 let g:multi_cursor_use_default_mapping=0
@@ -128,4 +129,8 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-c>'
+
+" Powerline
+set laststatus=2
+
 
