@@ -15,6 +15,7 @@ hi Normal ctermbg=none
 
 set guifont=Monospace\ 14
 set tags=tags;
+set backspace=indent,eol,start
 set wrap
 set novisualbell
 "set cursorline " Slow
