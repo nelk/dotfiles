@@ -43,9 +43,18 @@ set wrap
 set expandtab
 set listchars=tab:»·,trail:·
 
+" Powerline
+set laststatus=2
+
 " Prevent hard-wrap
 au BufNewFile,BufRead * set textwidth=0
 set wrapmargin=0
+
+" Window sizing
+set winheight=25
+set winminheight=0
+
+" Shortcut Section ---------------
 
 " Very magic mode
 nnoremap / /\v
@@ -57,20 +66,18 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" Quick substitution
+" Quick substitution.
 nnoremap <leader>s :%s/\v
+" Quick Ack.
 nnoremap <leader>f :Ack ""<left>
+" Quick Ack for word under cursor.
+nnoremap <leader>* yiw:Ack "<c-r>""<cr>
 
 " Fix file type
 " au BufNewFile,BufRead *.h,*.c set ft=c
 " au BufNewFile,BufRead *.cpp set ft=cpp
 
-" Window sizing
-set winheight=25
-set winminheight=0
-
-" Shortcut Section ---------------
-
+" Remove highlighting for search terms.
 nnoremap <leader><space> :noh<cr>
 
 " ctags aliases
@@ -116,7 +123,7 @@ nnoremap <leader>zf :set foldmethod=indent<CR>zM
 nnoremap <leader>zF :set foldmethod=manual<CR>zR
 
 " Ctrl+P excludes
-let g:ctrlp_custom_ignore = '\v\.(o|hi)$'
+let g:ctrlp_custom_ignore = '\v\.(o|hi|pdf|png|jpg|d)$'
 
 " haskellmode-vim settings
 "au Bufenter *.hs compiler ghc
@@ -130,8 +137,4 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-c>'
-
-" Powerline
-set laststatus=2
-
 
