@@ -25,3 +25,7 @@ ln -s $DOTFILES/powerline/powerline/bindings/vim $DOTFILES/bundle/vim-powerline
 # Sym link for zsh to run
 ln -s $DOTFILES/bashrc_global $DOTFILES/oh-my-zsh/custom/bashrc_global.zsh
 
+# Xmonad
+ln -s $DOTFILES/xmonad.hs ~/.xmonad/xmonad.hs
+ln -s $DOTFILES/.xmobarrc ~/.xmobarrc
+
