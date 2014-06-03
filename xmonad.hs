@@ -22,5 +22,5 @@ main = do
     , modMask = mod4Mask -- Use Super instead of Alt
     , borderWidth = 0
     } `additionalKeys`
-    [ ((mod4Mask .|. shiftMask, xK_l), spawn "slock")
+    [ ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
     ]
