@@ -7,9 +7,6 @@
 [submodule "bundle/vim-indent-guides/vim-indent-guides"]
 	path = bundle/vim-indent-guides/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "bundle/vim-latex/vim-latex"]
-	path = bundle/vim-latex/vim-latex
-	url = https://github.com/jcf/vim-latex.git
 [submodule "bundle/textobj-word-column/textobj-word-column"]
 	path = bundle/textobj-word-column/textobj-word-column
 	url = https://github.com/coderifous/textobj-word-column.vim
