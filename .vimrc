@@ -125,6 +125,9 @@ nnoremap <leader>zF :set foldmethod=manual<CR>zR
 " Ctrl+P excludes
 let g:ctrlp_custom_ignore = '\v\.(o|hi|pdf|png|jpg|d)$'
 
+" NERDTree excludes
+let NERDTreeIgnore = ['\v\.(o|hi|pdf|png|jpg|d)$']
+
 " haskellmode-vim settings
 "au Bufenter *.hs compiler ghc
 "let g:haddock_browser="gnome-open"
