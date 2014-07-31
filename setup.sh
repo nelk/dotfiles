@@ -10,6 +10,7 @@ echo 'Setting up oh-my-zsh'
 echo 'Building sym links'
 # Sym links required to be put into home
 ln -s $DOTFILES/.zshrc ~/.zshrc
+ln -s $DOTFILES/.i3 ~/.i3
 ln -s $DOTFILES/.xinitrc ~/.xinitrc
 ln -s $DOTFILES/.gitignore ~/.gitignore
 ln -s $DOTFILES/.vimrc ~/.vimrc
