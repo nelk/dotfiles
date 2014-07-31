@@ -3,6 +3,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ICCCMFocus
+import XMonad.Hooks.Script
 import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Util.Run(spawnPipe)
 import System.IO
@@ -12,7 +13,7 @@ main = do
   --xmproc <- spawnPipe "/usr/bin/xmobar /home/alex/.xmobarrc"
   xmonad $ defaultConfig
     { manageHook = manageDocks <+> manageHook defaultConfig
-    , startupHook = setWMName "LG3D"
+    , startupHook = setWMName "LG3D" -- <+> execScriptHook "startup"
     , layoutHook = avoidStruts  $  layoutHook defaultConfig
     , logHook = takeTopFocus <+> dynamicLogWithPP xmobarPP
                   { ppOutput = hPutStrLn xmproc
