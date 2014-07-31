@@ -16,6 +16,7 @@ alias vim=$VIMPATH
 alias v='vim .'
 alias tmux='tmux -2'
 alias o='gnome-open'
+alias l='ls -lh'
 
 # Git aliases - some others are already provided by oh-my-zsh at:
 # ./oh-my-zsh/plugins/git/git.plugin.zsh

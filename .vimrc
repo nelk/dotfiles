@@ -13,7 +13,7 @@ set t_Co=256
 colorscheme molokai
 hi Normal ctermbg=none
 
-set guifont=Monospace\ 14
+set guifont=Monospace\ 12
 set tags=tags;
 set backspace=indent,eol,start
 set wrap
@@ -65,6 +65,12 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Move using visual lines
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " Quick substitution.
 nnoremap <leader>s :%s/\v
@@ -140,4 +146,15 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-c>'
+
+" vim-latex settings
+let g:tex_flavor='latex'
+let g:Tex_HotKeyMappings='enumerate,align*,bmatrix'
+let g:Imap_UsePlaceHolders=0
+" redef C-j to C-g
+imap <C-g> <Plug>IMAP_JumpForward
+nmap <C-g> <Plug>IMAP_JumpForward
+
+" glsl
+au BufNewFile,BufRead *.frag,*.vert set ft=glsl 
 
