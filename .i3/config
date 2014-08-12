@@ -151,7 +151,7 @@ bindsym $mod+r mode "resize"
 bar {
   #font pango:DejaVu Sans Mono 10
   position top
-  status_command i3status
+  status_command i3status -c ~/.i3/i3status.conf
 }
 
 # External configs on startup.
@@ -159,6 +159,7 @@ exec xset r rate 200 30
 exec xmodmap $DOTFILES/remap_caps_lock
 exec xscreensaver -nosplash&
 exec --no-startup-id feh --bg-scale ~/background.jpg
+exec --no-startup-id dropbox start
 
 # Startup programs.
 exec i3-msg 'workspace 1;exec google-chrome "chrome-extension://eggkanocgddhmamlbiijnphhppkpkmkl/activesessionview.html?type=main&focusNodeId=tab2&altFocusNodeId=win1&scrollToViewWinId=1"'
