@@ -158,3 +158,11 @@ nmap <C-g> <Plug>IMAP_JumpForward
 " glsl
 au BufNewFile,BufRead *.frag,*.vert set ft=glsl 
 
+" ycm
+let g:ycm_global_ycm_extra_conf = '~/dotfiles/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+
+" neco-ghc
+let g:necoghc_enable_detailed_browse = 1
+
+
+

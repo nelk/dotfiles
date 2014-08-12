@@ -46,3 +46,6 @@
 [submodule "bundle/vim-powerline"]
 	path = bundle/vim-powerline
 	url = git@github.com:Lokaltog/vim-powerline.git
+[submodule "bundle/neco-ghc"]
+	path = bundle/neco-ghc
+	url = git@github.com:eagletmt/neco-ghc.git
