@@ -49,3 +49,12 @@
 [submodule "bundle/neco-ghc"]
 	path = bundle/neco-ghc
 	url = git@github.com:eagletmt/neco-ghc.git
+[submodule "bundle/ghcmod-vim"]
+	path = bundle/ghcmod-vim
+	url = git@github.com:eagletmt/ghcmod-vim.git
+[submodule "bundle/vimproc"]
+	path = bundle/vimproc
+	url = git@github.com:Shougo/vimproc.vim.git
+[submodule "bundle/haskell-vim"]
+	path = bundle/haskell-vim
+	url = git@github.com:raichoo/haskell-vim.git

@@ -156,13 +156,16 @@ imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
 
 " glsl
-au BufNewFile,BufRead *.frag,*.vert set ft=glsl 
+au BufNewFile,BufRead *.frag,*.vert set ft=glsl
 
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/dotfiles/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+let g:ycm_semantic_triggers = {'haskell': ['.']}
 
 " neco-ghc
 let g:necoghc_enable_detailed_browse = 1
 
+" ghcmod-vim
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 
