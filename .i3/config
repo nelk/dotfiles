@@ -159,6 +159,8 @@ for_window [window_role="pop-up"] floating enable
 # External configs on startup.
 exec xset r rate 200 30
 exec xmodmap ~/dotfiles/remap_caps_lock
+
+exec --no-startup-id nm-applet
 exec xscreensaver -nosplash&
 exec feh --bg-scale ~/background.jpg
 exec dropbox start
