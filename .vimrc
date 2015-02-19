@@ -162,10 +162,22 @@ au BufNewFile,BufRead *.frag,*.vert set ft=glsl
 let g:ycm_global_ycm_extra_conf = '~/dotfiles/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
 let g:ycm_semantic_triggers = {'haskell': ['.']}
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" Disable haskell checking.
+let g:syntastic_hs_checker = ''
+
 " neco-ghc
 let g:necoghc_enable_detailed_browse = 1
 
 " ghcmod-vim
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+" autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 

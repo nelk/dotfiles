@@ -49,12 +49,18 @@
 [submodule "bundle/neco-ghc"]
 	path = bundle/neco-ghc
 	url = git@github.com:eagletmt/neco-ghc.git
-[submodule "bundle/ghcmod-vim"]
-	path = bundle/ghcmod-vim
-	url = git@github.com:eagletmt/ghcmod-vim.git
 [submodule "bundle/vimproc"]
 	path = bundle/vimproc
 	url = git@github.com:Shougo/vimproc.vim.git
 [submodule "bundle/haskell-vim"]
 	path = bundle/haskell-vim
 	url = git@github.com:raichoo/haskell-vim.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle/Replay"]
+	path = bundle/Replay
+	url = git@github.com:chrisbra/Replay.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
