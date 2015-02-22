@@ -43,14 +43,17 @@ workspaceBindings = [ (xK_1, "web")
                     , (xK_equal, "=")
                     ]
 
+hangoutsResource :: String
+hangoutsResource = "crx_nckgahadagoaajjgafhacjanaoiihapd" 
+
 xconfig xmproc = defaultConfig
   { workspaces = map snd workspaceBindings
   , manageHook = mconcat
       [ className =? "Do" --> doFloat -- Float gnome-do.
       , title =? "Guake!" --> doFloat -- Float guake.
       , title =? "Tabs Outliner" --> (doF $ shift "web")
-      , title =? "Hangouts" --> (doF $ shift "chat")
-      , title =? "Buddy List" --> (doF $ shift "chat")
+      , resource =? hangoutsResource--> (doF $ shift "chat")
+      , className =? "Pidgin" --> (doF $ shift "chat")
       , isDialog --> doF shiftMaster
       , manageDocks
       ]
@@ -71,8 +74,8 @@ xconfig xmproc = defaultConfig
 
 imLayoutLeftWrapper rosterProperty = withIM (1 % 7) rosterProperty
 imLayoutRightWrapper rosterProperty = reflectHoriz . imLayoutLeftWrapper rosterProperty
-webLayoutWrapper = onWorkspace "web" (imLayoutRightWrapper (Title "Tabs Outliner") $ Mirror Grid)
-chatLayoutWrapper = onWorkspace "chat" (imLayoutLeftWrapper (Title "Hangouts") $ imLayoutRightWrapper (Title "Buddy List") $ Mirror Grid)
+webLayoutWrapper = onWorkspace "web" ((imLayoutRightWrapper (Title "Tabs Outliner") $ Mirror Grid) ||| Full)
+chatLayoutWrapper = onWorkspace "chat" ((imLayoutLeftWrapper (Title "Hangouts") $ imLayoutRightWrapper (Title "Buddy List") $ Mirror Grid) ||| Full)
 
 defaultLayout = combineTwo (TwoPane 0.03 0.5) (tabbed shrinkText defaultTheme) (tabbed shrinkText defaultTheme) ||| Full
 
