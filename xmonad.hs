@@ -1,11 +1,10 @@
---import Graphics.X11.Xlib.Misc
---import XMonad.Hooks.ICCCMFocus
 import Control.Monad (when)
 import Data.Monoid (mconcat)
 import Data.Ratio ((%))
 import System.Exit
 import System.IO
 import XMonad
+import XMonad.Actions.UpdatePointer (updatePointer, PointerPosition(..))
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
@@ -59,11 +58,13 @@ xconfig xmproc = defaultConfig
       ]
   , startupHook = setWMName "LG3D"
   , layoutHook = avoidStruts $ windowNavigation $ webLayoutWrapper $ chatLayoutWrapper defaultLayout
-  , logHook = {-takeTopFocus <+>-} dynamicLogWithPP xmobarPP
-                { ppOutput = hPutStrLn xmproc
-                , ppTitle = xmobarColor "green" "" . shorten 50
-                , ppLayout = const ""
-                }
+  , logHook = do
+      dynamicLogWithPP xmobarPP
+        { ppOutput = hPutStrLn xmproc
+        , ppTitle = xmobarColor "green" "" . shorten 50
+        , ppLayout = const ""
+        }
+      updatePointer (Relative 0.5 0.5)
   , terminal = "gnome-terminal"
   , modMask = mod4Mask -- Use Super instead of Alt.
   , borderWidth = 0
@@ -74,7 +75,7 @@ xconfig xmproc = defaultConfig
 
 imLayoutLeftWrapper rosterProperty = withIM (1 % 7) rosterProperty
 imLayoutRightWrapper rosterProperty = reflectHoriz . imLayoutLeftWrapper rosterProperty
-webLayoutWrapper = onWorkspace "web" ((imLayoutRightWrapper (Title "Tabs Outliner") $ Mirror Grid) ||| Full)
+webLayoutWrapper = onWorkspace "web" ((imLayoutLeftWrapper (Title "Tabs Outliner") $ Mirror Grid) ||| Full)
 chatLayoutWrapper = onWorkspace "chat" ((imLayoutLeftWrapper (Title "Hangouts") $ imLayoutRightWrapper (Title "Buddy List") $ Mirror Grid) ||| Full)
 
 defaultLayout = combineTwo (TwoPane 0.03 0.5) (tabbed shrinkText defaultTheme) (tabbed shrinkText defaultTheme) ||| Full
