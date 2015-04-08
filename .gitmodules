@@ -1,9 +1,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "bundle/vim-repeat/vim-repeat"]
-	path = bundle/vim-repeat/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
 [submodule "bundle/vim-indent-guides/vim-indent-guides"]
 	path = bundle/vim-indent-guides/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
@@ -64,3 +61,9 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git@github.com:scrooloose/syntastic.git
+[submodule "bundle/vim-haskellConceal"]
+	path = bundle/vim-haskellConceal
+	url = git@github.com:Twinside/vim-haskellConceal.git
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
