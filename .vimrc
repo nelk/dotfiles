@@ -6,10 +6,12 @@ set rtp+=~/.vim/bundle/Vundle
 call vundle#begin('~/.vim/vundlebundle')
 
 Plugin 'gmarik/Vundle'
+
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'begriffs/vim-haskellConceal'
 Plugin 'benmills/vimux'
 Plugin 'chrisbra/Replay'
@@ -18,6 +20,7 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'kien/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'raichoo/haskell-vim'
@@ -47,7 +50,8 @@ set tags=tags;
 set backspace=indent,eol,start
 set wrap
 set novisualbell
-"set cursorline " Slow
+set cursorline
+"set cursorcolumn
 set ruler
 "set relativenumber " Slow
 set number
@@ -148,11 +152,11 @@ nnoremap <leader>N :NERDTreeClose<CR>
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
 
-" Show indent guides
-let g:indent_guides_auto_colors = 0
+" vim-indent-guides config.
+let g:indent_guides_auto_colors=0
 let g:indent_guides_enable_on_vim_startup=1
-
-" Indent guides highlights
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#111111 ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=234
 
@@ -232,4 +236,10 @@ au BufRead *.hs,*.lhs setlocal omnifunc=necoghc#omnifunc
 
 au BufRead *.azx set ft=azx
 au BufRead BUILD set ft=python
+
+" Rainbow parentheses.
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
