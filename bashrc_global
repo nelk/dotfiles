@@ -10,7 +10,7 @@ if [ -e ~/.bashrc ]; then
 fi
 
 if [ ! $VIMPATH ]; then
-  export VIMPATH='vim'
+  export VIMPATH='TERM=xterm-256color nvim'
 fi
 alias vim=$VIMPATH
 alias tmux='tmux -2'

@@ -18,6 +18,7 @@ import XMonad.Layout.WindowNavigation
 import XMonad.StackSet (shiftMaster, focusUp, focusDown, greedyView, shift)
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect (reflectHoriz)
+import XMonad.Util.Cursor (setDefaultCursor)
 import XMonad.Util.Run (spawnPipe, runProcessWithInput)
 import qualified Data.Map as M
 
@@ -36,7 +37,7 @@ workspaceBindings = [ (xK_1, "web")
                     , (xK_6, "6")
                     , (xK_7, "7")
                     , (xK_8, "8")
-                    , (xK_9, "9")
+                    , (xK_9, "videos")
                     , (xK_0, "chat")
                     , (xK_minus, "-")
                     , (xK_equal, "=")
@@ -51,12 +52,13 @@ xconfig xmproc = defaultConfig
       [ className =? "Do" --> doFloat -- Float gnome-do.
       , title =? "Guake!" --> doFloat -- Float guake.
       , title =? "Tabs Outliner" --> (doF $ shift "web")
+      , title =? "Video Storage" --> (doF $ shift "videos")
       , resource =? hangoutsResource--> (doF $ shift "chat")
       , className =? "Pidgin" --> (doF $ shift "chat")
       , isDialog --> doF shiftMaster
       , manageDocks
       ]
-  , startupHook = setWMName "LG3D"
+  , startupHook = setWMName "LG3D" >> setDefaultCursor xC_top_left_arrow
   , layoutHook = avoidStruts $ windowNavigation $ webLayoutWrapper $ chatLayoutWrapper defaultLayout
   , logHook = do
       dynamicLogWithPP xmobarPP
@@ -64,7 +66,7 @@ xconfig xmproc = defaultConfig
         , ppTitle = xmobarColor "green" "" . shorten 50
         , ppLayout = const ""
         }
-      updatePointer (Relative 0.5 0.5)
+      --updatePointer (Relative 0.5 0.5)
   , terminal = "gnome-terminal"
   , modMask = mod4Mask -- Use Super instead of Alt.
   , borderWidth = 0
@@ -73,7 +75,7 @@ xconfig xmproc = defaultConfig
                     in foldr (uncurry M.insert) someRemovedKeys $ newKeys conf
   }
 
-imLayoutLeftWrapper rosterProperty = withIM (1 % 7) rosterProperty
+imLayoutLeftWrapper rosterProperty = withIM (1 % 6) rosterProperty
 imLayoutRightWrapper rosterProperty = reflectHoriz . imLayoutLeftWrapper rosterProperty
 webLayoutWrapper = onWorkspace "web" ((imLayoutLeftWrapper (Title "Tabs Outliner") $ Mirror Grid) ||| Full)
 chatLayoutWrapper = onWorkspace "chat" ((imLayoutLeftWrapper (Title "Hangouts") $ imLayoutRightWrapper (Title "Buddy List") $ Mirror Grid) ||| Full)
@@ -106,7 +108,8 @@ newKeys (XConfig {modMask = modMask'}) =
 
 removeKeys :: XConfig Layout -> [(KeyMask, KeySym)]
 removeKeys (XConfig {modMask = modMask'}) =
-  [(modMask' .|. shiftMask, xK_q)]
+  [ (modMask' .|. shiftMask, xK_q)
+  , (modMask', xK_p)]
   ++ [(modMask', key) | key <- [xK_1, xK_2, xK_3, xK_4, xK_5, xK_6, xK_7, xK_8, xK_9]]
 
 withConfirm :: String -> X () -> X ()

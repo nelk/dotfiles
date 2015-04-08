@@ -4,10 +4,11 @@ xset r rate 200 30
 xmodmap ~/dotfiles/remap_caps_lock
 numlockx on
 
-xcompmgr -c &
+# Compton compositor. "-b" causes it to fork daemon.
+compton --fading --fade-in-step=0.05 --fade-out-step=0.05 -b
 
 xscreensaver -nosplash &
-stalonetray -i 12 --window-type dock --geometry 12x1+880 --window-strut none --background black --icon-gravity NE --kludges force_icons_size &
+stalonetray -i 12 --window-type dock --geometry 12x1+880 --window-strut none --background black --icon-gravity NW --kludges force_icons_size &
 nm-applet &
 
 synapse -s &
@@ -17,7 +18,9 @@ dropbox start &
 ~/dotfiles/scripts/wallpaper.sh &
 
 google-chrome &
+nautilus ~/data/Video\ Storage &
 
-DEFAULT_SESSION=xmonad
-exec xmonad
+XMONAD=xmonad
+DEFAULT_SESSION=$XMONAD
+exec $XMONAD
 
