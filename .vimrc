@@ -1,9 +1,37 @@
 ﻿
 set nocompatible
+filetype off " Required to ensure reloading of ftdetect with Vundle/pathogen
 
-execute pathogen#incubate()
+set rtp+=~/.vim/bundle/Vundle
+call vundle#begin('~/.vim/vundlebundle')
 
-filetype off " Required to ensure reloading of ftdetect with pathogen
+Plugin 'gmarik/Vundle'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'begriffs/vim-haskellConceal'
+Plugin 'benmills/vimux'
+Plugin 'chrisbra/Replay'
+Plugin 'coderifous/textobj-word-column.vim'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'eagletmt/neco-ghc'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'raichoo/haskell-vim'
+Plugin 'robbyrussell/oh-my-zsh'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+
+call vundle#end()
+
 filetype plugin indent on
 syntax on
 
