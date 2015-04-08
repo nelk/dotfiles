@@ -13,9 +13,11 @@ if [ ! $VIMPATH ]; then
   export VIMPATH='vim'
 fi
 alias vim=$VIMPATH
-alias v='vim .'
 alias tmux='tmux -2'
-alias o='gnome-open'
+alias rsync='rsync -hP'
+function o() {
+  gnome-open "$@" > /dev/null 2>&1;
+}
 alias l='ls -lh'
 
 # Git aliases - some others are already provided by oh-my-zsh at:
@@ -27,8 +29,8 @@ alias gap='git add -p'
 alias gcam='git commit -a -v --amend'
 alias gri='git rebase -i'
 alias gk='gitk --all &'
-alias glg='git log --decorate --oneline -n 20'
-alias glgo='git log --graph --max-count=20 --oneline'
+alias glg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias glg2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gd='git --no-pager diff'
 gvo() { $VIMPATH `git diff --name-only -w "$@"` }
 
@@ -38,4 +40,10 @@ export EDITOR=$VIMPATH
 
 # zsh keybind backwards-i-search
 bindkey '^R' history-incremental-search-backward
+
+# Bring in ssh auth socket from external environment into tmux.
+if [ -n "$TMUX" ]; then
+  export $(tmux show-environment | grep "^SSH_AUTH_SOCK")
+fi
+
 

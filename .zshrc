@@ -33,9 +33,8 @@ ZSH_THEME="dpoggi"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git vi-mode history-substring-search)
+DISABLE_CORRECTION="true"
 
 source $ZSH/oh-my-zsh.sh
-
-export PATH=$PATH:~/.cabal/bin
 
 # Customize to your needs...

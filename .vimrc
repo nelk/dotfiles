@@ -195,8 +195,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-" Disable haskell checking.
-let g:syntastic_hs_checker = ''
+let g:syntastic_asm_checkers = []
+let g:syntastic_python_mypy_args = '--use-python-path'
 
 " neco-ghc
 let g:necoghc_enable_detailed_browse = 1
@@ -204,8 +204,4 @@ au BufRead *.hs,*.lhs setlocal omnifunc=necoghc#omnifunc
 
 au BufRead *.azx set ft=azx
 au BufRead BUILD set ft=python
-
-" ghcmod-vim
-" autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-
 
