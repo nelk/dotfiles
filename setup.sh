@@ -11,15 +11,23 @@ echo 'Building sym links'
 # Sym links required to be put into home
 ln -s $DOTFILES/.zshrc ~/.zshrc
 ln -s $DOTFILES/.i3 ~/.i3
+ln -s $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -s $DOTFILES/.xinitrc ~/.xinitrc
 ln -s $DOTFILES/.xinitrc ~/.xsession
 ln -s $DOTFILES/.gitignore ~/.gitignore
-ln -s $DOTFILES/.vimrc ~/.vimrc
-mkdir -p ~/.vim
-ln -s $DOTFILES/bundle ~/.vim/bundle
-ln -s $DOTFILES/autoload ~/.vim/autoload
-ln -s $DOTFILES/colors ~/.vim/colors
-ln -s $DOTFILES/syntax ~/.vim/syntax
+
+for vimdir in "~/.vim" "~/.nvim"
+do
+  ln -s $DOTFILES/.vimrc $vimdir"rc"
+  mkdir -p $vimdir
+  ln -s $DOTFILES/bundle $vimdir/bundle
+  ln -s $DOTFILES/autoload $vimdir/autoload
+  ln -s $DOTFILES/colors $vimdir/colors
+  ln -s $DOTFILES/syntax $vimdir/syntax
+  mkdir -P $vimdir/tempfiles/undo
+  mkdir -P $vimdir/tempfiles/backup
+  mkdir -P $vimdir/tempfiles/swap
+done
 
 # Powerline
 mkdir -p ~/.config
