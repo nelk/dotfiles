@@ -1,18 +1,6 @@
 
 export DOTFILES=~/dotfiles
 
-# Run bash profiles if they exist
-if [ -e ~/.bash_profile ]; then
-  source ~/.bash_profile
-fi
-if [ -e ~/.bashrc ]; then
-  source ~/.bashrc
-fi
-
-if [ ! $VIMPATH ]; then
-  export VIMPATH='TERM=xterm-256color nvim'
-fi
-alias vim=$VIMPATH
 alias tmux='tmux -2'
 alias rsync='rsync -hP'
 function o() {

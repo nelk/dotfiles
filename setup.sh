@@ -18,15 +18,16 @@ ln -s $DOTFILES/.gitignore ~/.gitignore
 
 for vimdir in "~/.vim" "~/.nvim"
 do
+  echo "Setting up vimdir $vimdir"
   ln -s $DOTFILES/.vimrc $vimdir"rc"
   mkdir -p $vimdir
   ln -s $DOTFILES/bundle $vimdir/bundle
   ln -s $DOTFILES/autoload $vimdir/autoload
   ln -s $DOTFILES/colors $vimdir/colors
   ln -s $DOTFILES/syntax $vimdir/syntax
-  mkdir -P $vimdir/tempfiles/undo
-  mkdir -P $vimdir/tempfiles/backup
-  mkdir -P $vimdir/tempfiles/swap
+  mkdir -p $vimdir/tempfiles/undo
+  mkdir -p $vimdir/tempfiles/backup
+  mkdir -p $vimdir/tempfiles/swap
 done
 
 # Powerline

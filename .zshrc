@@ -38,3 +38,9 @@ DISABLE_CORRECTION="true"
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
+export PATH=$PATH:~/.cabal/bin:/media/Data/alex/code/third-party/google-cloud-sdk/bin
+
+

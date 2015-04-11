@@ -15,11 +15,12 @@ import XMonad.Layout.Combo (combineTwo)
 import XMonad.Layout.Tabbed (tabbed, defaultTheme, shrinkText)
 import XMonad.Layout.TwoPane
 import XMonad.Layout.WindowNavigation
-import XMonad.StackSet (shiftMaster, focusUp, focusDown, greedyView, shift)
+import XMonad.StackSet (shiftMaster, focusUp, focusDown, greedyView, shift, RationalRect(..))
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect (reflectHoriz)
 import XMonad.Util.Cursor (setDefaultCursor)
 import XMonad.Util.Run (spawnPipe, runProcessWithInput)
+import XMonad.Util.Scratchpad (scratchpadManageHook, scratchpadSpawnActionCustom)
 import qualified Data.Map as M
 
 
@@ -49,13 +50,12 @@ hangoutsResource = "crx_nckgahadagoaajjgafhacjanaoiihapd"
 xconfig xmproc = defaultConfig
   { workspaces = map snd workspaceBindings
   , manageHook = mconcat
-      [ className =? "Do" --> doFloat -- Float gnome-do.
-      , title =? "Guake!" --> doFloat -- Float guake.
-      , title =? "Tabs Outliner" --> (doF $ shift "web")
+      [ title =? "Tabs Outliner" --> (doF $ shift "web")
       , title =? "Video Storage" --> (doF $ shift "videos")
       , resource =? hangoutsResource--> (doF $ shift "chat")
       , className =? "Pidgin" --> (doF $ shift "chat")
       , isDialog --> doF shiftMaster
+      , scratchpadManageHook $ RationalRect 0.002 0.015 1 0.99
       , manageDocks
       ]
   , startupHook = setWMName "LG3D" >> setDefaultCursor xC_top_left_arrow
@@ -86,8 +86,8 @@ altMask :: KeyMask
 altMask = mod1Mask
 
 newKeys :: XConfig Layout -> [((KeyMask, KeySym), X ())]
-newKeys (XConfig {modMask = modMask'}) =
-  [ ((controlMask .|. altMask, xK_l), spawn "xscreensaver-command -lock")
+newKeys config@(XConfig {modMask = modMask'}) =
+  [ ((controlMask .|. altMask, xK_l), spawn "gnome-screensaver-command -l")
   , ((noModMask, stringToKeysym "XF86AudioLowerVolume"), spawn "amixer -D pulse -q sset Master 5%- unmute")
   , ((noModMask, stringToKeysym "XF86AudioRaiseVolume"), spawn "amixer -D pulse -q sset Master 5%+ unmute")
   , ((noModMask, stringToKeysym "XF86AudioMute"), spawn "amixer -D pulse -q sset Master 1+ toggle")
@@ -100,6 +100,7 @@ newKeys (XConfig {modMask = modMask'}) =
   , ((modMask', xK_l), windows focusDown)
   --, ((modMask', xK_j), sendMessage $ Go D)
   --, ((modMask', xK_k), sendMessage $ Go U)
+  , ((modMask', xK_grave), scratchpadSpawnActionCustom "gnome-terminal --disable-factory --name scratchpad")
   ] ++ concat [
     [ ((modMask', key), windows $ greedyView ws)
     , ((modMask' .|. shiftMask, key), windows $ shift ws)
