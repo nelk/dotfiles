@@ -22,7 +22,6 @@ do
   ln -s $DOTFILES/.vimrc $vimdir"rc"
   mkdir -p $vimdir
   ln -s $DOTFILES/bundle $vimdir/bundle
-  ln -s $DOTFILES/autoload $vimdir/autoload
   ln -s $DOTFILES/colors $vimdir/colors
   ln -s $DOTFILES/syntax $vimdir/syntax
   mkdir -p $vimdir/tempfiles/undo
