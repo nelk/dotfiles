@@ -22,7 +22,6 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'raichoo/haskell-vim'
 Plugin 'robbyrussell/oh-my-zsh'
 Plugin 'scrooloose/nerdcommenter'
@@ -152,15 +151,6 @@ nnoremap <leader>N :NERDTreeClose<CR>
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
 
-" vim-indent-guides config.
-let g:indent_guides_auto_colors=0
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#111111 ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=234
-
-
 " Bookmarking Awesome
 let g:BookmarksFile = "~/bookmarks"
 function! CreateBookmark()
@@ -229,6 +219,10 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_asm_checkers = []
 let g:syntastic_python_mypy_args = '--use-python-path'
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": ["python"]}
+nnoremap <leader>c :SyntasticCheck<return>
 
 " neco-ghc
 let g:necoghc_enable_detailed_browse = 1

@@ -55,7 +55,7 @@ xconfig xmproc = defaultConfig
       , resource =? hangoutsResource--> (doF $ shift "chat")
       , className =? "Pidgin" --> (doF $ shift "chat")
       , isDialog --> doF shiftMaster
-      , scratchpadManageHook $ RationalRect 0.002 0.015 1 0.99
+      , scratchpadManageHook $ RationalRect 0.002 0.015 1 0.95
       , manageDocks
       ]
   , startupHook = setWMName "LG3D" >> setDefaultCursor xC_top_left_arrow

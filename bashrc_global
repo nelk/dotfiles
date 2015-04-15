@@ -4,7 +4,7 @@ export DOTFILES=~/dotfiles
 alias tmux='tmux -2'
 alias rsync='rsync -hP'
 function o() {
-  gnome-open "$@" > /dev/null 2>&1;
+  gvfs-open "$@" > /dev/null 2>&1;
 }
 alias l='ls -lh'
 
