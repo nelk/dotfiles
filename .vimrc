@@ -13,6 +13,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'begriffs/vim-haskellConceal'
+Plugin 'nelk/neomake'
 Plugin 'benmills/vimux'
 Plugin 'chrisbra/Replay'
 Plugin 'coderifous/textobj-word-column.vim'
@@ -26,7 +27,7 @@ Plugin 'raichoo/haskell-vim'
 Plugin 'robbyrussell/oh-my-zsh'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
@@ -209,20 +210,34 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_semantic_triggers = {'haskell': ['.']}
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_asm_checkers = []
+"let g:syntastic_python_mypy_args = '--use-python-path'
+"let g:syntastic_mode_map = {
+"    \ "mode": "passive",
+"    \ "active_filetypes": ["python"]}
+"nnoremap <leader>c :SyntasticCheck<return>
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_asm_checkers = []
-let g:syntastic_python_mypy_args = '--use-python-path'
-let g:syntastic_mode_map = {
-    \ "mode": "passive",
-    \ "active_filetypes": ["python"]}
-nnoremap <leader>c :SyntasticCheck<return>
+" Neomake
+let g:neomake_haskell_enabled_makers = ['ghcmod_check', 'ghcmod_lint']
+let g:neomake_cpp_enabled_makers = []
+let g:neomake_open_list = 1
+let g:neomake_error_sign = {
+  \ 'texthl': 'SpellBad',
+  \ 'linehl': 'SpellBad',
+  \ }
+let g:neomake_warning_sign = {
+  \ 'texthl': 'WarningMsg',
+  \ 'linehl': 'WarningMsg',
+  \ }
+au! BufWritePost,BufReadPost * Neomake
+"nnoremap <leader>c :Neomake<return>
 
 " neco-ghc
 let g:necoghc_enable_detailed_browse = 1
