@@ -41,6 +41,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
+alias vi="vim"
 export PATH=$PATH:~/.cabal/bin:.cabal-sandbox/bin:/media/Data/alex/code/third-party/google-cloud-sdk/bin
 
 

@@ -19,10 +19,8 @@ Plugin 'chrisbra/Replay'
 Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'eagletmt/neco-ghc'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'kien/ctrlp.vim'
+Plugin 'Shougo/unite.vim'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'mileszs/ack.vim'
 Plugin 'raichoo/haskell-vim'
 Plugin 'robbyrussell/oh-my-zsh'
 Plugin 'scrooloose/nerdcommenter'
@@ -50,7 +48,7 @@ set tags=tags;
 set backspace=indent,eol,start
 set wrap
 set novisualbell
-set cursorline
+"set cursorline
 "set cursorcolumn
 set ruler
 "set relativenumber " Slow
@@ -124,15 +122,26 @@ if has('mouse')
   set mouse=a
 endif
 
+" Unite bindings.
+let g:unite_source_history_yank_enable = 1
+let g:unite_data_directory = '~/.vim/tempfiles/unite'
+let g:unite_source_grep_command = 'ack'
+let g:unite_source_grep_default_opts = '-i --no-heading --no-color -k -H'
+let g:unite_source_rec_async_command = 'ack -f --nofilter'
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#source('file_rec,file_rec/async,file', 'ignore_pattern', '\(\.cabal-sandbox/\|\.\(hi\|o\|d\|pdf\|png\|jpg\)$\)')
+nnoremap <c-p>     :Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
+nnoremap <leader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <leader>y :Unite -no-split -buffer-name=yank                  history/yank<cr>
+nnoremap <leader>b :Unite -no-split -buffer-name=buffer                buffer<cr>
+nnoremap <leader>f :Unite -no-split -buffer-name=ack                   grep:.<cr>
+nnoremap <leader>* yiw:Unite -no-split -buffer-name=ack grep:.<cr>"<c-r>""<cr>
+
 " Quick substitution.
 nnoremap <leader>s :%s/\v
-" Quick Ack.
-nnoremap <leader>f :Ack ""<left>
-" Quick Ack for word under cursor.
-nnoremap <leader>* yiw:Ack "<c-r>""<cr>
 
 " Eval in octave.
-vnoremap <leader>o :!octave --silent \| sed "s/ans =//" - \| sed "/^\s*$/d" -<CR>
+vnoremap <leader><leader>o :!octave --silent \| sed "s/ans =//" - \| sed "/^\s*$/d" -<CR>
 
 " Fix file type
 " au BufNewFile,BufRead *.h,*.c set ft=c
@@ -173,9 +182,6 @@ nmap <leader>M :call CreateBookmark()<CR>
 " Folding shortcut
 nnoremap <leader>zf :set foldmethod=indent<CR>zM
 nnoremap <leader>zF :set foldmethod=manual<CR>zR
-
-" Ctrl+P excludes
-let g:ctrlp_custom_ignore = '\v\.(o|hi|pdf|png|jpg|d)$'
 
 " NERDTree excludes
 let NERDTreeIgnore = ['\v\.(o|hi|pdf|png|jpg|d)$']
@@ -225,7 +231,8 @@ let g:ycm_semantic_triggers = {'haskell': ['.']}
 "nnoremap <leader>c :SyntasticCheck<return>
 
 " Neomake
-let g:neomake_haskell_enabled_makers = ['ghcmod_check', 'ghcmod_lint']
+let g:neomake_haskell_enabled_makers = ['ghcmod_check'] ", 'ghcmod_lint']
+let g:neomake_scala_enabled_makers = ['activator_compile']
 let g:neomake_cpp_enabled_makers = []
 let g:neomake_open_list = 1
 let g:neomake_error_sign = {
