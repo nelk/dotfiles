@@ -12,7 +12,7 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'begriffs/vim-haskellConceal'
+"Plugin 'begriffs/vim-haskellConceal'
 Plugin 'nelk/neomake'
 Plugin 'benmills/vimux'
 Plugin 'chrisbra/Replay'
@@ -24,12 +24,12 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'raichoo/haskell-vim'
 Plugin 'robbyrussell/oh-my-zsh'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 
 call vundle#end()
 
@@ -43,7 +43,7 @@ set t_Co=256
 colorscheme molokai
 hi Normal ctermbg=none
 
-set guifont=Monospace\ 12
+"set guifont=Monospace\ 12
 set tags=tags;
 set backspace=indent,eol,start
 set wrap
@@ -55,6 +55,7 @@ set ruler
 set number
 set scrolloff=3 " Leave 3 lines above/below cursor visible at all times
 set showcmd
+set splitright
 
 set shiftwidth=2
 set tabstop=2
@@ -128,7 +129,7 @@ let g:unite_data_directory = '~/.vim/tempfiles/unite'
 let g:unite_source_grep_command = 'ack'
 let g:unite_source_grep_default_opts = '-i --no-heading --no-color -k -H'
 let g:unite_source_rec_async_command = 'ack -f --nofilter'
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom#source('file_rec,file_rec/async,file', 'ignore_pattern', '\(\.cabal-sandbox/\|\.\(hi\|o\|d\|pdf\|png\|jpg\)$\)')
 nnoremap <c-p>     :Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
 nnoremap <leader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
@@ -152,10 +153,6 @@ nnoremap <leader><space> :noh<cr>
 
 " ctags aliases
 nnoremap <leader><leader>c !ctags -Rf - --format=2 --excmd=pattern --extra= --fields=nksaSmt
-
-" NERDTree shortcuts
-nnoremap <leader>n :NERDTreeFind<CR>
-nnoremap <leader>N :NERDTreeClose<CR>
 
 " Vimux aliases
 nnoremap <leader>vp :VimuxPromptCommand<CR>
@@ -183,8 +180,10 @@ nmap <leader>M :call CreateBookmark()<CR>
 nnoremap <leader>zf :set foldmethod=indent<CR>zM
 nnoremap <leader>zF :set foldmethod=manual<CR>zR
 
-" NERDTree excludes
-let NERDTreeIgnore = ['\v\.(o|hi|pdf|png|jpg|d)$']
+" File explorer (netrw) settings
+let g:netrw_liststyle=3
+let g:netrw_list_hide='\v\.(o|hi|pdf|png|jpg|d)$'
+"let g:netrw_winsize=50
 
 " haskellmode-vim settings
 "au Bufenter *.hs compiler ghc
@@ -213,7 +212,7 @@ au BufNewFile,BufRead *.frag,*.vert set ft=glsl
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/dotfiles/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_semantic_triggers = {'haskell': ['.']}
+let g:ycm_semantic_triggers = {'haskell': ['.']} " Require something to be set for it to work with neco-ghc.
 
 " syntastic
 "set statusline+=%#warningmsg#
@@ -231,8 +230,10 @@ let g:ycm_semantic_triggers = {'haskell': ['.']}
 "nnoremap <leader>c :SyntasticCheck<return>
 
 " Neomake
+let g:neomake_open_list = 2 " Disable cursor stealing.
 let g:neomake_haskell_enabled_makers = ['ghcmod_check'] ", 'ghcmod_lint']
-let g:neomake_scala_enabled_makers = ['activator_compile']
+let g:neomake_scala_enabled_makers = [] "['activator_compile']
+let g:neomake_sbt_enabled_makers = []
 let g:neomake_cpp_enabled_makers = []
 let g:neomake_open_list = 1
 let g:neomake_error_sign = {
