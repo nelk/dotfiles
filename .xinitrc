@@ -15,7 +15,7 @@ dropbox start &
 
 ~/dotfiles/scripts/wallpaper.sh &
 
-google-chrome &
+(sleep 1; google-chrome) &
 nautilus ~/data/Video\ Storage &
 
 XMONAD=xmonad
