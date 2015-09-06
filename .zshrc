@@ -38,8 +38,10 @@ DISABLE_CORRECTION="true"
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
+bindkey "^[[A" history-substring-search-up
+bindkey "^P" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+bindkey "^N" history-substring-search-down
 
 setopt rm_star_silent
 
