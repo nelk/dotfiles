@@ -55,7 +55,7 @@ xconfig xmproc = defaultConfig
       , resource =? hangoutsResource--> (doF $ shift "chat")
       , className =? "Pidgin" --> (doF $ shift "chat")
       , isDialog --> doF shiftMaster
-      , scratchpadManageHook $ RationalRect 0.002 0.015 1 0.95
+      , scratchpadManageHook $ RationalRect 0.002 0.015 1 1
       , manageDocks
       ]
   , startupHook = setWMName "LG3D" >> setDefaultCursor xC_top_left_arrow
@@ -78,7 +78,8 @@ xconfig xmproc = defaultConfig
 imLayoutLeftWrapper rosterProperty = withIM (1 % 6) rosterProperty
 imLayoutRightWrapper rosterProperty = reflectHoriz . imLayoutLeftWrapper rosterProperty
 webLayoutWrapper = onWorkspace "web" ((imLayoutLeftWrapper (Title "Tabs Outliner") $ Mirror Grid) ||| Full)
-chatLayoutWrapper = onWorkspace "chat" ((imLayoutLeftWrapper (Title "Hangouts") $ imLayoutRightWrapper (Title "Buddy List") $ Mirror Grid) ||| Full)
+--chatLayoutWrapper = onWorkspace "chat" ((imLayoutLeftWrapper (Title "Hangouts") $ imLayoutRightWrapper (Title "Buddy List") $ Mirror Grid) ||| Full)
+chatLayoutWrapper = onWorkspace "chat" (Mirror Grid ||| Full)
 
 defaultLayout = combineTwo (TwoPane 0.03 0.5) (tabbed shrinkText defaultTheme) (tabbed shrinkText defaultTheme) ||| Full
 
@@ -100,7 +101,7 @@ newKeys config@(XConfig {modMask = modMask'}) =
   , ((modMask', xK_l), windows focusDown)
   --, ((modMask', xK_j), sendMessage $ Go D)
   --, ((modMask', xK_k), sendMessage $ Go U)
-  , ((modMask', xK_grave), scratchpadSpawnActionCustom "gnome-terminal --disable-factory --name scratchpad")
+  , ((modMask', xK_grave), scratchpadSpawnActionCustom $ terminal config ++ " --disable-factory --name scratchpad")
   ] ++ concat [
     [ ((modMask', key), windows $ greedyView ws)
     , ((modMask' .|. shiftMask, key), windows $ shift ws)
