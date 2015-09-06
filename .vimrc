@@ -181,9 +181,8 @@ nnoremap <leader>zf :set foldmethod=indent<CR>zM
 nnoremap <leader>zF :set foldmethod=manual<CR>zR
 
 " File explorer (netrw) settings
+set wildignore=*.o,*.hi,*.d,*.pyc
 let g:netrw_liststyle=3
-let g:netrw_list_hide='\v\.(o|hi|pdf|png|jpg|d)$'
-"let g:netrw_winsize=50
 
 " haskellmode-vim settings
 "au Bufenter *.hs compiler ghc
