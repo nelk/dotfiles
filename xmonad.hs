@@ -45,14 +45,15 @@ workspaceBindings = [ (xK_1, "web")
                     ]
 
 hangoutsResource :: String
-hangoutsResource = "crx_nckgahadagoaajjgafhacjanaoiihapd" 
+hangoutsResource = "crx_nckgahadagoaajjgafhacjanaoiihapd"
 
 xconfig xmproc = defaultConfig
   { workspaces = map snd workspaceBindings
   , manageHook = mconcat
       [ title =? "Tabs Outliner" --> (doF $ shift "web")
       , title =? "Video Storage" --> (doF $ shift "videos")
-      , resource =? hangoutsResource--> (doF $ shift "chat")
+      , resource =? hangoutsResource --> (doF $ shift "chat")
+      , className =? "Do" --> doFloat
       , className =? "Pidgin" --> (doF $ shift "chat")
       , isDialog --> doF shiftMaster
       , scratchpadManageHook $ RationalRect 0.002 0.015 1 1
@@ -101,7 +102,7 @@ newKeys config@(XConfig {modMask = modMask'}) =
   , ((modMask', xK_l), windows focusDown)
   --, ((modMask', xK_j), sendMessage $ Go D)
   --, ((modMask', xK_k), sendMessage $ Go U)
-  , ((modMask', xK_grave), scratchpadSpawnActionCustom $ terminal config ++ " --disable-factory --name scratchpad")
+  , ((modMask', xK_grave), scratchpadSpawnActionCustom $ terminal config ++ " --disable-factory --class scratchpad")
   ] ++ concat [
     [ ((modMask', key), windows $ greedyView ws)
     , ((modMask' .|. shiftMask, key), windows $ shift ws)

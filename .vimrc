@@ -9,27 +9,29 @@ Plugin 'gmarik/Vundle'
 
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'begriffs/vim-haskellConceal'
 Plugin 'nelk/neomake'
+"Plugin 'benekastah/neomake'
 Plugin 'benmills/vimux'
 Plugin 'chrisbra/Replay'
 Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'raichoo/haskell-vim'
 Plugin 'robbyrussell/oh-my-zsh'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
+"Plugin 'tpope/vim-vinegar'
 
 call vundle#end()
 
@@ -154,6 +156,11 @@ nnoremap <leader><space> :noh<cr>
 " ctags aliases
 nnoremap <leader><leader>c !ctags -Rf - --format=2 --excmd=pattern --extra= --fields=nksaSmt
 
+" NERDTree
+nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <leader>N :NERDTreeClose<CR>
+let NERDTreeIgnore = ['\v\.(o|hi|pdf|png|jpg|d)$']
+
 " Vimux aliases
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
@@ -245,6 +252,8 @@ let g:neomake_warning_sign = {
   \ }
 au! BufWritePost,BufReadPost * Neomake
 "nnoremap <leader>c :Neomake<return>
+
+let g:neomake_javascript_enabled_makers = ['flow']
 
 " neco-ghc
 let g:necoghc_enable_detailed_browse = 1

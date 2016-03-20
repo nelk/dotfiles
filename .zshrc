@@ -46,7 +46,10 @@ bindkey "^N" history-substring-search-down
 setopt rm_star_silent
 
 alias vi="vim"
-export PATH=$PATH:~/.cabal/bin:.cabal-sandbox/bin:/media/Data/alex/code/third-party/google-cloud-sdk/bin
+export EDITOR=vim
+
+export PATH=$PATH:~/.local/bin:~/.cabal/bin:.cabal-sandbox/bin:/media/Data/alex/code/third-party/google-cloud-sdk/bin:/media/Data/alex/code/third-party/JohnTheRipper/run:/media/Data/alex/code/third-party/android-sdk-linux/platform-tools
+
 
 # Force color for terminals besides gnome-terminal.
 export COLORTERM=gnome-terminal
