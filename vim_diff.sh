@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-vim -d "$2" "$5"
+$VIMPATH -d "$2" "$5"
 

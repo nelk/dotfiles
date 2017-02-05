@@ -1,6 +1,14 @@
 
 export DOTFILES=~/dotfiles
 
+command_exists () {
+    command -v "$1" &> /dev/null ;
+}
+if command_exists nvim ; then
+    alias vim=nvim
+    export VIMPATH=`command -v nvim`
+fi
+
 alias tmux='tmux -2'
 alias rsync='rsync -hP'
 function o() {

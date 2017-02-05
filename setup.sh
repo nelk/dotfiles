@@ -18,8 +18,7 @@ ln -s $DOTFILES/.gitignore $HOME/.gitignore
 
 # Vim setup.
 VIM_DIR="$HOME/.vim"
-
-for vimdir in "$VIM_DIR" "$HOME/.nvim"
+for vimdir in "$VIM_DIR"
 do
   echo "Setting up vimdir $vimdir"
   ln -s $DOTFILES/.vimrc $vimdir"rc"
@@ -30,6 +29,11 @@ do
   mkdir -p $vimdir/tempfiles/backup
   mkdir -p $vimdir/tempfiles/swap
 done
+
+# NVim Symlinks.
+mkdir -p ~/.config
+ln -s $VIM_DIR ~/.config/nvim
+ln -s $DOTFILES/.vimrc ~/.config/nvim/init.vim
 
 # Sym link for zsh to run
 ln -s $DOTFILES/bashrc_global $DOTFILES/oh-my-zsh/custom/bashrc_global.zsh
