@@ -1,39 +1,45 @@
 ﻿
 set nocompatible
-filetype off " Required to ensure reloading of ftdetect with Vundle/pathogen
+filetype off " Required to ensure reloading of ftdetect with pathogen
 
-set rtp+=~/.vim/bundle/Vundle
-call vundle#begin('~/.vim/vundlebundle')
+" Download plug-vim.
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'gmarik/Vundle'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'airblade/vim-gitgutter'
-"Plugin 'begriffs/vim-haskellConceal'
-Plugin 'nelk/neomake'
-"Plugin 'benekastah/neomake'
-Plugin 'benmills/vimux'
-Plugin 'chrisbra/Replay'
-Plugin 'coderifous/textobj-word-column.vim'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'raichoo/haskell-vim'
-Plugin 'robbyrussell/oh-my-zsh'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-"Plugin 'tpope/vim-vinegar'
+Plug 'junegunn/vim-plug'
 
-call vundle#end()
+Plug 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-powerline'
+Plug 'Valloric/YouCompleteMe'
+Plug 'airblade/vim-gitgutter'
+"Plug 'begriffs/vim-haskellConceal'
+Plug 'nelk/neomake'
+"Plug 'benekastah/neomake'
+Plug 'benmills/vimux'
+Plug 'chrisbra/Replay'
+Plug 'coderifous/textobj-word-column.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'eagletmt/neco-ghc'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'raichoo/haskell-vim'
+Plug 'robbyrussell/oh-my-zsh'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/syntastic'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-vinegar'
+
+call plug#end()
 
 filetype plugin indent on
 syntax on

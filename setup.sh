@@ -16,23 +16,20 @@ ln -s $DOTFILES/.xinitrc $HOME/.xinitrc
 ln -s $DOTFILES/.xinitrc $HOME/.xsession
 ln -s $DOTFILES/.gitignore $HOME/.gitignore
 
-for vimdir in "$HOME/.vim" "$HOME/.nvim"
+# Vim setup.
+VIM_DIR="$HOME/.vim"
+
+for vimdir in "$VIM_DIR" "$HOME/.nvim"
 do
   echo "Setting up vimdir $vimdir"
   ln -s $DOTFILES/.vimrc $vimdir"rc"
   mkdir -p $vimdir
-  ln -s $DOTFILES/bundle $vimdir/bundle
   ln -s $DOTFILES/colors $vimdir/colors
   ln -s $DOTFILES/syntax $vimdir/syntax
   mkdir -p $vimdir/tempfiles/undo
   mkdir -p $vimdir/tempfiles/backup
   mkdir -p $vimdir/tempfiles/swap
 done
-
-# Powerline
-mkdir -p $HOME/.config
-ln -s $DOTFILES/powerline/powerline/powerline_config $HOME/.config/powerline
-ln -s $DOTFILES/powerline/powerline/bindings/vim $DOTFILES/bundle/vim-powerline
 
 # Sym link for zsh to run
 ln -s $DOTFILES/bashrc_global $DOTFILES/oh-my-zsh/custom/bashrc_global.zsh

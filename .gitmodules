@@ -67,6 +67,3 @@
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = git@github.com:tpope/vim-repeat.git
-[submodule "bundle/Vundle"]
-	path = bundle/Vundle
-	url = https://github.com/VundleVim/Vundle.vim
