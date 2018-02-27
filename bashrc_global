@@ -33,7 +33,7 @@ gvo() { $VIMPATH `git diff --name-only -w "$@"` }
 
 export GIT_EXTERNAL_DIFF=$DOTFILES/vim_diff.sh
 
-export EDITOR=$VIMPATH
+export EDITOR="$VIMPATH"
 
 # zsh keybind backwards-i-search
 bindkey '^R' history-incremental-search-backward

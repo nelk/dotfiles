@@ -15,29 +15,34 @@ Plug 'junegunn/vim-plug'
 
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Lokaltog/vim-powerline'
-Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
-"Plug 'begriffs/vim-haskellConceal'
-Plug 'nelk/neomake'
-"Plug 'benekastah/neomake'
 Plug 'benmills/vimux'
 Plug 'chrisbra/Replay'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'derekwyatt/vim-scala'
-Plug 'eagletmt/neco-ghc'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'raichoo/haskell-vim'
 Plug 'robbyrussell/oh-my-zsh'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-"Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
+
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-vinegar'
+
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+Plug 'neomake/neomake'
+Plug 'scrooloose/syntastic'
+
+"Plug 'raichoo/haskell-vim'
+Plug 'neovimhaskell/haskell-vim'
+"Plug 'begriffs/vim-haskellConceal'
+"Plug 'eagletmt/neco-ghc'
+Plug 'parsonsmatt/intero-neovim'
 
 call plug#end()
 
@@ -139,7 +144,7 @@ let g:unite_source_grep_default_opts = '-i --no-heading --no-color -k -H'
 let g:unite_source_rec_async_command = 'ack -f --nofilter'
 "call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom#source('file_rec,file_rec/async,file', 'ignore_pattern', '\(\.cabal-sandbox/\|\.\(hi\|o\|d\|pdf\|png\|jpg\)$\)')
-nnoremap <c-p>     :Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
+nnoremap <c-p>     :Unite -buffer-name=files -start-insert file_rec/neovim<cr>
 nnoremap <leader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>y :Unite -no-split -buffer-name=yank                  history/yank<cr>
 nnoremap <leader>b :Unite -no-split -buffer-name=buffer                buffer<cr>
@@ -242,28 +247,32 @@ let g:ycm_semantic_triggers = {'haskell': ['.']} " Require something to be set f
 "nnoremap <leader>c :SyntasticCheck<return>
 
 " Neomake
-let g:neomake_open_list = 2 " Disable cursor stealing.
-let g:neomake_haskell_enabled_makers = ['ghcmod_check'] ", 'ghcmod_lint']
-let g:neomake_scala_enabled_makers = [] "['activator_compile']
-let g:neomake_sbt_enabled_makers = []
-let g:neomake_cpp_enabled_makers = []
-let g:neomake_open_list = 1
-let g:neomake_error_sign = {
-  \ 'texthl': 'SpellBad',
-  \ 'linehl': 'SpellBad',
-  \ }
-let g:neomake_warning_sign = {
-  \ 'texthl': 'WarningMsg',
-  \ 'linehl': 'WarningMsg',
-  \ }
-au! BufWritePost,BufReadPost * Neomake
+"let g:neomake_open_list = 2 " Disable cursor stealing.
+"let g:neomake_haskell_enabled_makers = ['ghcmod_check'] ", 'ghcmod_lint']
+"let g:neomake_scala_enabled_makers = [] "['activator_compile']
+"let g:neomake_sbt_enabled_makers = []
+"let g:neomake_cpp_enabled_makers = []
+"let g:neomake_open_list = 1
+"let g:neomake_error_sign = {
+"  \ 'texthl': 'SpellBad',
+"  \ 'linehl': 'SpellBad',
+"  \ }
+"let g:neomake_warning_sign = {
+"  \ 'texthl': 'WarningMsg',
+"  \ 'linehl': 'WarningMsg',
+"  \ }
+"u! BufWritePost,BufReadPost * Neomake
 "nnoremap <leader>c :Neomake<return>
 
-let g:neomake_javascript_enabled_makers = ['flow']
+"et g:neomake_javascript_enabled_makers = ['flow']
 
 " neco-ghc
-let g:necoghc_enable_detailed_browse = 1
-au BufRead *.hs,*.lhs setlocal omnifunc=necoghc#omnifunc
+"et g:necoghc_enable_detailed_browse = 1
+"au BufRead *.hs,*.lhs setlocal omnifunc=necoghc#omnifunc
+
+"Intero
+au BufWritePost *.hs InteroReload
+
 
 au BufRead *.azx set ft=azx
 au BufRead BUILD set ft=python
