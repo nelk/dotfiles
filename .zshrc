@@ -46,11 +46,15 @@ bindkey "^N" history-substring-search-down
 setopt rm_star_silent
 
 alias vi="vim"
+alias tmux="tmux -u"
 export EDITOR=vim
 
-export PATH=$PATH:~/.local/bin:~/.cabal/bin:.cabal-sandbox/bin:/media/Data/alex/code/third-party/google-cloud-sdk/bin:/media/Data/alex/code/third-party/JohnTheRipper/run:/media/Data/alex/code/third-party/android-sdk-linux/platform-tools
-
+export PATH=$PATH:~/.local/bin:~/.cabal/bin:.cabal-sandbox/bin:/media/Data/alex/code/third-party/google-cloud-sdk/bin:/media/Data/alex/code/third-party/JohnTheRipper/run:/media/Data/alex/code/third-party/android-sdk-linux/platform-tools:/media/Data/alex/code/third-party/android-sdk-linux/tools
+#export CC=/usr/bin/clang++
 
 # Force color for terminals besides gnome-terminal.
 export COLORTERM=gnome-terminal
 
+
+export PATH=/home/nelk/.local/bin/luna-studio:$PATH
+export PATH=/home/nelk/c/third-party/flutter/bin:$PATH
