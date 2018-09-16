@@ -15,7 +15,7 @@ Plug 'junegunn/vim-plug'
 
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Lokaltog/vim-powerline'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'chrisbra/Replay'
 Plug 'coderifous/textobj-word-column.vim'
@@ -35,14 +35,23 @@ Plug 'tpope/vim-surround'
 
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-Plug 'neomake/neomake'
-Plug 'scrooloose/syntastic'
+"Plug 'neomake/neomake'
+"Plug 'scrooloose/syntastic'
 
-"Plug 'raichoo/haskell-vim'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'nbouscal/vim-stylish-haskell'
 "Plug 'begriffs/vim-haskellConceal'
 "Plug 'eagletmt/neco-ghc'
-Plug 'parsonsmatt/intero-neovim'
+"Plug 'parsonsmatt/intero-neovim'
+
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh'
+"    \ }
+"Plug 'roxma/nvim-completion-manager'
+
+Plug 'LnL7/vim-nix'
 
 call plug#end()
 
@@ -270,8 +279,24 @@ let g:ycm_semantic_triggers = {'haskell': ['.']} " Require something to be set f
 "et g:necoghc_enable_detailed_browse = 1
 "au BufRead *.hs,*.lhs setlocal omnifunc=necoghc#omnifunc
 
+" ghcid
+"au BufRead *.hs,*.lhs :Ghcid
+
 "Intero
-au BufWritePost *.hs InteroReload
+"au BufWritePost *.hs InteroReload
+
+"haskell-vim
+let g:haskell_indent_disable=1
+
+" LCS
+let g:LanguageClient_devel = 1
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+  \ 'haskell': ['hie', '--lsp'],
+  \ }
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+"nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 
 au BufRead *.azx set ft=azx
