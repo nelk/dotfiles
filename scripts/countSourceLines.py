@@ -22,7 +22,7 @@ def countSourceLines(src, lineCounts, filesCounted):
         __c(src)
 
 if __name__ == "__main__":
-    filetypes = ["c", "cc", "cpp", "h", "hpp", "py", "java", "sh", "go", "html", "htm", "xml", "php", "js", "jsx", "t", "tu", "frag", "vert", "hs", "scala", "tex"]
+    filetypes = ["lhs", "hs", "c", "cc", "cpp", "h", "hpp", "py", "java", "sh", "go", "html", "htm", "xml", "php", "js", "jsx", "t", "tu", "frag", "vert", "hs", "scala", "tex"]
     lineCounts = {}
     filesCounted = []
     for ft in filetypes:
