@@ -34,7 +34,6 @@ Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-vinegar'
 
 "Plug 'Valloric/YouCompleteMe'
-"Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 "Plug 'neomake/neomake'
 "Plug 'scrooloose/syntastic'
 
@@ -52,6 +51,9 @@ Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 "Plug 'roxma/nvim-completion-manager'
 
 Plug 'LnL7/vim-nix'
+
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 call plug#end()
 
