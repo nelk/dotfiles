@@ -66,6 +66,7 @@ set t_Co=256
 
 colorscheme molokai
 hi Normal ctermbg=none
+set background=dark
 
 "set guifont=Monospace\ 12
 set tags=tags;
