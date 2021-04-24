@@ -15,6 +15,7 @@ ln -s $DOTFILES/.tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES/.xinitrc $HOME/.xinitrc
 ln -s $DOTFILES/.xinitrc $HOME/.xsession
 ln -s $DOTFILES/.gitignore $HOME/.gitignore
+ln -s $DOTFILES/.spacemacs $HOME/.spacemacs
 
 # Vim setup.
 VIM_DIR="$HOME/.vim"
