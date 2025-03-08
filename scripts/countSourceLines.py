@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import os
 import sys
@@ -6,13 +6,18 @@ import sys
 def countSourceLines(src, lineCounts, filesCounted):
     '''Counts lines of source code in a directory'''
     def __c(f):
-        filesCounted.append(f)
         ext = os.path.splitext(f)[1][1:]
         if ext in lineCounts:
-            lineCounts[ext][0] += 1
-            fil = open(f)
-            lineCounts[ext][1] += sum(1 for line in fil)
-            fil.close()
+            try:
+                fil = open(f, 'r', encoding='utf-8', errors='ignore')
+                lineCounts[ext][0] += 1
+                line_count = sum(1 for line in fil)
+                lineCounts[ext][1] += line_count
+                fil.close()
+                filesCounted.append(f)
+            except Exception as e:
+                # Skip files that can't be processed
+                pass
 
     if os.path.isdir(src):
         for root, dirs, files in os.walk(src):
@@ -22,22 +27,23 @@ def countSourceLines(src, lineCounts, filesCounted):
         __c(src)
 
 if __name__ == "__main__":
-    filetypes = ["lhs", "hs", "c", "cc", "cpp", "h", "hpp", "py", "java", "sh", "go", "html", "htm", "xml", "php", "js", "jsx", "t", "tu", "frag", "vert", "hs", "scala", "tex"]
+    filetypes = ["lhs", "hs", "c", "cc", "cpp", "h", "hpp", "py", "java", "sh", "go", "html", "htm", "xml", "php", "js", "jsx", "t", "tu", "frag", "vert", "hs", "scala", "tex", "ts", "tsx"]
     lineCounts = {}
     filesCounted = []
     for ft in filetypes:
         lineCounts[ft] = [0, 0]
 
     src_dirs = sys.argv[1:]
-    map(lambda s: countSourceLines(s, lineCounts, filesCounted), src_dirs)
-    print "\nCounted source code lines for:\n" + '\n'.join(filesCounted)
+    for s in src_dirs:
+        countSourceLines(s, lineCounts, filesCounted)
+    print("\nCounted source code lines for:\n" + '\n'.join(filesCounted))
     totalf = 0
     totall = 0
-    for k, v in lineCounts.iteritems():
+    for k, v in iter(lineCounts.items()):
         if v[0] > 0:
             totalf += v[0]
             totall += v[1]
-            print ("." + k + ":").ljust(8) + "files:" + str(v[0]).rjust(8) + "  lines:" + str(v[1]).rjust(10)
-    print "Total source files: %d" % totalf
-    print "Total lines in all source files: %d" % totall
+            print(("." + k + ":").ljust(8) + "files:" + str(v[0]).rjust(8) + "  lines:" + str(v[1]).rjust(10))
+    print("Total source files: %d" % totalf)
+    print("Total lines in all source files: %d" % totall)
 
